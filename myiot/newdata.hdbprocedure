@@ -1,0 +1,27 @@
+PROCEDURE "MYALEXA"."alexa.myiot::newdata" (
+IN row MYALEXA."alexa.myiot::mydata.tt_details",
+OUT error MYALEXA."alexa.myiot::mydata.tt_error" )  
+LANGUAGE SQLSCRIPT
+SQL SECURITY INVOKER
+DEFAULT SCHEMA MYALEXA
+AS
+BEGIN
+/*****************************
+Write your procedure logic
+*****************************/
+
+declare lv_temperature string;
+declare lv_humidity string;
+declare lv_bright string;
+select TEMPERATURE, HUMIDITY, BRIGHTNESS into lv_temperature, lv_humidity, lv_bright  from :row;
+
+if :lv_temperature = ' ' then
+error = select 400 as http_status_code,
+'invalid date' as error_message,
+  'Invalid response from sensor' as detail from dummy;
+else
+insert into "alexa.myiot::mydata.Data" values ("alexa.myiot::myalexa_id_seq".NEXTVAL, now(), CAST(lv_temperature AS decimal(9,5)), CAST(lv_humidity AS double), CAST(lv_bright AS double) );
+
+end if;
+
+END;

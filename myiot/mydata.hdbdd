@@ -1,0 +1,28 @@
+namespace alexa.myiot;
+
+@Schema: 'MYALEXA'
+context mydata {
+type SDate : UTCTimestamp;
+type tt_error {
+ HTTP_STATUS_CODE: Integer;
+ ERROR_MESSAGE: String(100);
+ DETAIL: String(200);
+};
+type tt_details {
+ ID: Integer;
+TIMESTAMP: SDate;
+TEMPERATURE: Decimal(9,5);
+HUMIDITY: Double;
+BRIGHTNESS: Double;
+};
+
+@Catalog.tableType : #COLUMN
+Entity Data {
+key ID: Integer;
+TIMESTAMP: SDate;
+TEMPERATURE: Decimal(9,5);
+HUMIDITY: Double;
+BRIGHTNESS: Double;
+};
+
+};  
