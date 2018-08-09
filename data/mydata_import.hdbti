@@ -1,0 +1,7 @@
+import	= 	[
+    			{
+					cdstable  =	"alexa.data::mydata.Book";
+					file = "alexa.data:sample_book_list.csv"; 	     
+					header = false;		
+    			}
+     		];

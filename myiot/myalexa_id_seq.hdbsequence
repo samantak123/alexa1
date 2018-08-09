@@ -1,0 +1,5 @@
+schema="MYALEXA";
+start_with=100;
+minvalue=1;
+cycles=false;
+depends_on_table="alexa.myiot::mydata.Data";

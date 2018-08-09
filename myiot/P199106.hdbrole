@@ -1,0 +1,12 @@
+role alexa.myiot::P199106
+{
+catalog schema "MYALEXA": CREATE ANY, ALTER, DROP, EXECUTE, SELECT, INSERT, UPDATE, DELETE, INDEX, TRIGGER, DEBUG, REFERENCES;
+sql object alexa.myiot::myalexa_id_seq: //Objecttype: SEQUENCE
+	SELECT;
+catalog sql object "MYALEXA"."alexa.myiot::mydata.Data": //Objecttype: TABLE
+	SELECT, INSERT, UPDATE, DELETE;
+catalog sql object "MYALEXA"."alexa.myiot::newdata": //Objecttype: PROCEDURE
+	EXECUTE;
+
+
+}

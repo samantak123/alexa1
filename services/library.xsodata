@@ -1,0 +1,3 @@
+service namespace "alexa.services" {
+	"alexa.data::mydata.Book" as "library";
+}

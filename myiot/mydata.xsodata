@@ -1,0 +1,5 @@
+service namespace "alexa.myiot" {
+"MYALEXA"."alexa.myiot::mydata.Data" as "HISTORY";
+"MYALEXA"."alexa.myiot::mydata.Data" as "DATA"
+create using "alexa.myiot::newdata";
+}
